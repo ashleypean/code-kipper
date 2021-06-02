@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Container, FormInput, SubmitButton, Label, Title, RegisterText, RegisterLink, InputContainer } from './Login.styles'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/actions/actions'
+import { useAppStyles } from '../../utils/AppStyles'
 
 const Login = ({ loginUser }) => {
   useAppStyles()
@@ -39,14 +40,6 @@ const Login = ({ loginUser }) => {
     </Container>
   )
 }
-
-const useAppStyles = () => {
-  const app = document.querySelector('#root')
-  app.style.display = 'flex'
-  app.style.justifyContent = 'center'
-  app.style.alignItems = 'center'
-}
-
 const mapDispatchToProps = (dispatch) => ({
   loginUser: user => dispatch(actions.requestLogin(user))
 })

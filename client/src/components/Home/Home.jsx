@@ -7,8 +7,10 @@ import { connect } from 'react-redux'
 import * as actions from '../../redux/actions/actions'
 import Header from '../Header/Header'
 import Fuse from 'fuse.js'
+import { useAppStyles } from '../../utils/AppStyles'
 
 const Home = ({userId, name, fetchUserPosts, userPosts}) => {
+  useAppStyles()
   const [modalOpen, setOpenModal] = useState(false)
   const [editDetails, setEditDetails] = useState(null)
   const [searchResults, setSearchResults] = useState('')
