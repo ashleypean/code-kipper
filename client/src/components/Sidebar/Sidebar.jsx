@@ -1,47 +1,47 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import * as styles from './Sidebar.styles'
-import { v4 as uuidv4 } from 'uuid'
-import HomeIcon from '@material-ui/icons/Home';
-import DynamicFeedIcon from '@material-ui/icons/DynamicFeed'
-import SettingsIcon from '@material-ui/icons/Settings'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-import SearchIcon from '@material-ui/icons/Search'
-import * as actions from '../../redux/actions/actions'
+import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ViewStreamIcon from '@material-ui/icons/ViewStream';
 
 
-const Sidebar = ({logoutUser}) => {
-  const sideBarIcons = [<HomeIcon />, <SearchIcon />,  <DynamicFeedIcon />, <SettingsIcon />, <ExitToAppIcon />]
-  const sideBarUrls = ['', 'explore', 'feed',  'settings', 'logout']
-  const history = useHistory()
-  const location = useLocation()
 
-  const handleRedirect = (newLocation) => {
-    newLocation = newLocation.toLowerCase()
+const Sidebar = ({ modalOpen, handleSearch }) => { 
+  const { pathname } = useLocation()
 
-    if(newLocation === 'logout') 
-      logoutUser()
-    else 
-      history.push(`/${newLocation}`)
+  const generateSidebar = () => {
+    console.log(pathname)
+    switch (pathname) {
+      case '/': 
+        return <DashboardSidebar handleSearch={handleSearch}/>
+      default: 
+        return null
+    }
   }
 
-  
- 
+
   return (
-    <styles.Container>
-      {sideBarIcons.map((el, idx) => (
-        <styles.Option active={location.pathname === `/${sideBarUrls[idx]}`}key={uuidv4()} onClick={() => handleRedirect(sideBarUrls[idx])}>{el}</styles.Option>
-      ))}
+    <styles.Container modalOpen={modalOpen}>
+      {generateSidebar()}
     </styles.Container>
   )
 }
 
+const DashboardSidebar = ({ handleSearch }) => (
+  <>
+    <styles.LayoutButtonContainer>
+      <ViewStreamIcon fontSize="large"/>
+      <ViewHeadlineIcon fontSize="large"/>
+      <ViewModuleIcon fontSize="large"/>
+    </styles.LayoutButtonContainer>
 
-const mapDispatchToProps = (dispatch) => ({
-  logoutUser: () => dispatch(actions.logoutUser())
-})
+    <styles.SearchBar 
+      placeholder="Snippet Search" 
+      onChange={handleSearch}
+    />
+  </>
+   
+)
 
-
-
-export default connect(null, mapDispatchToProps)(Sidebar)
+export default Sidebar

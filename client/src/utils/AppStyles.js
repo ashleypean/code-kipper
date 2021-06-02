@@ -12,7 +12,7 @@ export const useAppStyles = () => {
   } else {
     app.style.display = 'grid'
     app.style.gridTemplateRows = '.25fr 1fr 1fr 1fr 1fr'
-    app.style.gridTemplateColumns = '4% 24% 24% 24% 24%'
+    app.style.gridTemplateColumns = '20% 20% 20% 20% 20%'
     app.style.gridTemplateAreas = `
       "header header header header header"
       "sidebar . content content sidecard" 

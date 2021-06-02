@@ -5,13 +5,14 @@ export const Container = styled.div`
   position: fixed;
   filter: ${props => props.modalOpen? 'blur(5px)': 'blur(0px)'};
   margin: 10rem 0 0 0;
-  height: 500px;
-  width: 100px;
-  background: #141732;
+  height: 100px;
+  padding: 1rem;
+  /* background: #141732; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-end;`
+  align-items: center;
+  `
 Container.displayName = 'Container'
 
 export const Option = styled.li`
@@ -30,3 +31,21 @@ export const Option = styled.li`
     color: blue;
   }`
 Option.displayName = 'Option'
+
+export const LayoutButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const SearchBar = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  background-color:rgba(0,0,0,0.4);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 0 1rem;`
+SearchBar.displayName = 'SearchBar'

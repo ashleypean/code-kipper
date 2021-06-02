@@ -66,7 +66,9 @@ const Home = ({userId, name, fetchUserPosts, userPosts}) => {
       />
 
       <Sidebar 
-        modalOpen={modalOpen} />
+        modalOpen={modalOpen}
+        handleSearch={handleSearch}  
+      />
  
       <PostsContainer 
         modalOpen={modalOpen} 

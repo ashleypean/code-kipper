@@ -5,6 +5,9 @@ import * as styles from './Header.styles'
 import * as actions from '../../redux/actions/actions'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import Menu from '@material-ui/core/Menu';
+import DynamicFeedIcon from '@material-ui/icons/DynamicFeed'
+import SearchIcon from '@material-ui/icons/Search'
+import ExploreIcon from '@material-ui/icons/Explore';
 import MenuItem from '@material-ui/core/MenuItem';
 import AddIcon from '@material-ui/icons/Add';
 import Logo from '../../images/codekipper-logo.png'
@@ -21,9 +24,9 @@ const Header = ({modalOpen, searchBar, searchFunc, setOpenModal, logoutUser }) =
     '/settings': 'Settings'
   }
 
-  const goToSettings = () => {
+  const goToPage = (page) => {
     setProfileAnchor(null)
-    history.push('/settings')
+    history.push(`/${page}`)
   }
 
   const handleClick = (event) => {
@@ -32,28 +35,24 @@ const Header = ({modalOpen, searchBar, searchFunc, setOpenModal, logoutUser }) =
 
   return (
     <styles.Header modalOpen={modalOpen}>
-      <styles.MainLogo src={Logo}/>
+      
 
       <styles.CurrentTab> 
         {tabs[location.pathname]}
       </styles.CurrentTab>
 
-      {searchBar
-      ? <styles.SearchBar 
-          placeholder="Search here" 
-          onChange={searchFunc}
-        />
-      : null}
-
-      <styles.Title modalOpen={modalOpen}>
+      <styles.Title 
+        modalOpen={modalOpen}
+        onClick={() => goToPage('')}  
+      >
         Code Kipper
       </styles.Title>
 
       <styles.IconsContainer>
-        <AddIcon onClick={() => setOpenModal(true)}/>
+        <DynamicFeedIcon onClick={() => goToPage('feed')}/>
+        <ExploreIcon onClick={() => goToPage('explore')}/>
 
-
-        <NotificationsIcon fontSize="large"/>
+        <NotificationsIcon />
 
         <styles.Profile onClick={handleClick}>
           A
@@ -66,7 +65,7 @@ const Header = ({modalOpen, searchBar, searchFunc, setOpenModal, logoutUser }) =
           open={Boolean(profileAnchor)}
           onClose={() => setProfileAnchor(null)}
         >
-          <MenuItem onClick={goToSettings}>
+          <MenuItem onClick={() => goToPage('settings')}>
             Account Settings
           </MenuItem>
           <MenuItem onClick={logoutUser}>

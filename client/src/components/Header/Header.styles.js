@@ -31,8 +31,9 @@ SearchBar.displayName = 'SearchBar'
 export const Title = styled.h1`
   font-size: 2rem;
   text-align: center;
-  width: 25%;
+  width: 60%;
   margin: 0;
+  cursor: pointer;
   background: #121FCF;
   background: -webkit-linear-gradient(to right, #121FCF 21%, #CF1512 100%);
   background: -moz-linear-gradient(to right, #121FCF 21%, #CF1512 100%);
@@ -58,15 +59,16 @@ export const Profile = styled.p`
   display: inline-flex;
   border-radius: 50%;
   background: white;
-  width: 2.8rem;
-  height: 2.8rem;
-  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
   color: #C74548;
   justify-content: center;
   align-items: center;`
 Profile.displayName = 'ProfileCircle'
 
 export const MainLogo = styled.img`
-  height: 3rem;
-  width: 5rem;`
+  height: 2rem;
+  width: 4rem;
+  vertical-align: middle;`
 MainLogo.displayName = 'MainLogo'
