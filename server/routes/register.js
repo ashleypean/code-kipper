@@ -11,4 +11,6 @@ const registerController = require('../controllers/registerController')
 
 router.post('/', registerController.checkForExistingUser, registerController.createUser, registerController.createSession)
 
+router.post('/', registerController.checkForExistingUser, registerController.createUser, registerController.createSession)
+
 module.exports = router

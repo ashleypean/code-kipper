@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
-import { Container, FormInput, SubmitButton, Label, Title, RegisterText } from './Login.styles'
-// import axios from 'axios'
+import { Container, FormInput, SubmitButton, Label, Title, RegisterText, RegisterLink, InputContainer } from './Login.styles'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/actions/actions'
 
 const Login = ({ loginUser }) => {
+  useAppStyles()
   const emailInput = useRef()
   const passwordInput = useRef()
   
@@ -19,17 +19,32 @@ const Login = ({ loginUser }) => {
     <Container onSubmit={handleSubmit}>
       <Title>Code Kipper</Title>
 
-      <Label>Email</Label>
-      <FormInput type="text" placeholder="email" ref={emailInput} />
+      <InputContainer>
+        <Label>Email</Label>
+        <FormInput type="text" placeholder="Email" ref={emailInput} />
+      </InputContainer>
 
-      <Label>Password</Label>
-      <FormInput type="password" placeholder="password" ref={passwordInput}/>
+      <InputContainer>
+        <Label>Password</Label>
+        <FormInput type="password" placeholder="Password" ref={passwordInput}/>
+      </InputContainer>
 
       <SubmitButton type="submit">Submit</SubmitButton>
 
-      <RegisterText>Not registered? <a href="/register">Create an account</a></RegisterText>
+      <RegisterText>Not registered?  &nbsp;
+        <RegisterLink href="/register">
+          Create an account
+        </RegisterLink>
+      </RegisterText>
     </Container>
   )
+}
+
+const useAppStyles = () => {
+  const app = document.querySelector('#root')
+  app.style.display = 'flex'
+  app.style.justifyContent = 'center'
+  app.style.alignItems = 'center'
 }
 
 const mapDispatchToProps = (dispatch) => ({

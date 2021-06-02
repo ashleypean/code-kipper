@@ -64,8 +64,6 @@ app.use('/feed', require('./routes/feed'))
 app.use('/', require('./routes/home'))
 
 
-
-
 /* INITIALIZE SERVER */
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`)
