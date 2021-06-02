@@ -32,7 +32,13 @@ export const Title = styled.h1`
   font-size: 2rem;
   text-align: center;
   width: 25%;
-  margin: 0;`
+  margin: 0;
+  background: #121FCF;
+  background: -webkit-linear-gradient(to right, #121FCF 21%, #CF1512 100%);
+  background: -moz-linear-gradient(to right, #121FCF 21%, #CF1512 100%);
+  background: linear-gradient(to right, #121FCF 21%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;`
 Title.displayName = 'Title'
 
 export const IconsContainer = styled.div`
