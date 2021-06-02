@@ -47,17 +47,36 @@ const Home = ({userId, name, fetchUserPosts, userPosts}) => {
   
   return (
     <>
-      {modalOpen? <Modal changeIsOpen={setOpenModal} editDetails={editDetails} setEditDetails={setEditDetails} userPosts={userPosts} userId={userId} searchResults={searchResults} /> : null }
+      {modalOpen
+      ? <Modal 
+          changeIsOpen={setOpenModal} 
+          editDetails={editDetails} 
+          setEditDetails={setEditDetails} 
+          userPosts={userPosts} 
+          userId={userId} 
+          searchResults={searchResults} 
+        /> 
+      : null }
 
-      <Header modalOpen={modalOpen} searchFunc={handleSearch} searchBar={true}/>
+      <Header 
+        modalOpen={modalOpen} 
+        setOpenModal={setOpenModal} 
+        searchFunc={handleSearch} 
+        searchBar={true}
+      />
 
-      <Sidebar modalOpen={modalOpen} />
+      <Sidebar 
+        modalOpen={modalOpen} />
  
-      <PostsContainer modalOpen={modalOpen} setOpenModal={setOpenModal} editDetails={editDetails} setEditDetails={setEditDetails} username={name} userPosts={userPosts} searchResults={searchResults}/>
-
-      <styles.Sidecard>
-        <styles.Button onClick={() => setOpenModal(true)}>Create a snippet</styles.Button>
-      </styles.Sidecard>
+      <PostsContainer 
+        modalOpen={modalOpen} 
+        setOpenModal={setOpenModal} 
+        editDetails={editDetails} 
+        setEditDetails={setEditDetails} 
+        username={name} 
+        userPosts={userPosts} 
+        searchResults={searchResults}
+      />
     </>
   )
 }

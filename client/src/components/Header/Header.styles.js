@@ -42,6 +42,12 @@ export const IconsContainer = styled.div`
   gap: 2rem;` 
 IconsContainer.displayName = 'IconsContainer'
 
+export const AddButton = styled.button`
+  color: white;
+  background: transparent;
+  border: none;`
+AddButton.displayName = 'AddButon'
+
 export const Profile = styled.p`
   display: inline-flex;
   border-radius: 50%;
