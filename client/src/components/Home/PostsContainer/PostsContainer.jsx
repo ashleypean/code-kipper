@@ -37,7 +37,7 @@ function PostsContainer({setOpenModal, setEditDetails, modalOpen, userPosts, use
   }
 
   return (
-    <styles.Container modalOpen={modalOpen}>
+    <styles.Container modalOpen={modalOpen} id="post-container">
     {searchResults? searchResults.reduceRight( (acc, post, idx) => acc.concat(
       <styles.Post key={uuidv4()} postId={post._id} id={`post-${idx}`}>
         <styles.Username>{username}</styles.Username>

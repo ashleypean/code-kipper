@@ -13,6 +13,7 @@ const CodeBlock = ({ code, language, theme, themeOverride }) => {
     'Tomorrow': tomorrow, 
     'Solarized Light': solarizedlight,
   }
+  console.log(code)
   return (
     <div style={styling}>
       <SyntaxHighlighter language={language.toLowerCase()} style={themeOpts[themeOverride] || themeOpts[theme]} showLineNumbers={true} wrapLines={true} wrapLongLines={true} data-src="myfile.js" data-download-link>

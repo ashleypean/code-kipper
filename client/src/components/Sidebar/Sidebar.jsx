@@ -1,11 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import { genertatePostLayout } from '../../utils/PostLayout'
 import * as styles from './Sidebar.styles'
-import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import ViewStreamIcon from '@material-ui/icons/ViewStream';
-
-
 
 const Sidebar = ({ modalOpen, handleSearch }) => { 
   const { pathname } = useLocation()
@@ -20,7 +16,6 @@ const Sidebar = ({ modalOpen, handleSearch }) => {
     }
   }
 
-
   return (
     <styles.Container modalOpen={modalOpen}>
       {generateSidebar()}
@@ -31,9 +26,18 @@ const Sidebar = ({ modalOpen, handleSearch }) => {
 const DashboardSidebar = ({ handleSearch }) => (
   <>
     <styles.LayoutButtonContainer>
-      <ViewStreamIcon fontSize="large"/>
-      <ViewHeadlineIcon fontSize="large"/>
-      <ViewModuleIcon fontSize="large"/>
+      <styles.ColumnLayout 
+        fontSize="large"
+        onClick={() => genertatePostLayout('column')}
+      />
+      <styles.CondensedColumnLayout
+        fontSize="large"
+        onClick={() => genertatePostLayout('condensed-column')}
+      />
+      <styles.GridLayout
+        fontSize="large"
+        onClick={() => genertatePostLayout('grid')}
+      />
     </styles.LayoutButtonContainer>
 
     <styles.SearchBar 

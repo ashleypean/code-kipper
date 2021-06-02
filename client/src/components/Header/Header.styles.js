@@ -14,24 +14,14 @@ export const CurrentTab = styled.h1`
   color: #4678FF;
   font-size: 2rem;
   font-weight: 200;
-  margin: 0;`
+  margin: 0;
+  width: 30%;`
 CurrentTab.displayName = 'CurrentTab'
-
-export const SearchBar = styled.input`
-  width: 30%;
-  height: 3rem;
-  background-color:rgba(0,0,0,0.4);
-  color: white;
-  outline: none;
-  border: none;
-  border-radius: 6px;
-  padding: 0 1rem;`
-SearchBar.displayName = 'SearchBar'
 
 export const Title = styled.h1`
   font-size: 2rem;
   text-align: center;
-  width: 60%;
+  width: 66%;
   margin: 0;
   cursor: pointer;
   background: #121FCF;
@@ -46,7 +36,8 @@ export const IconsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;` 
+  gap: 2rem;
+  width: 15%;` 
 IconsContainer.displayName = 'IconsContainer'
 
 export const AddButton = styled.button`

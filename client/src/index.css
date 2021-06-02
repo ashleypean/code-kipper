@@ -12,32 +12,6 @@ div#root {
   background: #02052f;
   font-family: 'Noto Sans', sans-serif;
   color: white;
-  display: grid;
-  grid-template-rows: .25fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 4% 24% 24% 24% 24%;
-  grid-template-areas: 
-  "sidebar header header header header"
-  "sidebar . content content sidecard" 
-  "sidebar . content content sidecard" 
-  "sidebar . content content ." 
-  "sidebar . content content .";
 }
 
-/* @media screen and (max-width: 400px) {
-  div#root {
-    height: auto;
-    min-height: 100%;
-    width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-rows: .25fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 10% 4% 24% 24% 24%;
-    grid-template-areas: 
-    "sidebar header header header header"
-    "sidebar . content content sidecard" 
-    "sidebar . content content sidecard" 
-    "sidebar . content content ." 
-    "sidebar . content content .";
-  }
 
-} */
