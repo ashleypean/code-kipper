@@ -53,3 +53,8 @@ export const Profile = styled.p`
   justify-content: center;
   align-items: center;`
 Profile.displayName = 'ProfileCircle'
+
+export const MainLogo = styled.img`
+  height: 3rem;
+  width: 5rem;`
+MainLogo.displayName = 'MainLogo'

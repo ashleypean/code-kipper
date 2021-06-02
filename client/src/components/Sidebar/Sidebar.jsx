@@ -31,7 +31,6 @@ const Sidebar = ({logoutUser}) => {
  
   return (
     <styles.Container>
-      <styles.MainLogo src={Logo} />
       {sideBarIcons.map((el, idx) => (
         <styles.Option active={location.pathname === `/${sideBarUrls[idx]}`}key={uuidv4()} onClick={() => handleRedirect(sideBarUrls[idx])}>{el}</styles.Option>
       ))}

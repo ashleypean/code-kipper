@@ -14,7 +14,7 @@ export const useAppStyles = () => {
     app.style.gridTemplateRows = '.25fr 1fr 1fr 1fr 1fr'
     app.style.gridTemplateColumns = '4% 24% 24% 24% 24%'
     app.style.gridTemplateAreas = `
-      ". header header header header"
+      "header header header header header"
       "sidebar . content content sidecard" 
       "sidebar . content content sidecard" 
       "sidebar . content content ." 
