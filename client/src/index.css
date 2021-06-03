@@ -1,13 +1,16 @@
 html, body {
+  min-height: 100vh;
+  min-width: 95vw;
+  overflow-x: hidden;
   height: 100%;
-  width: 100%;
+  width: auto;
   margin: 0;
 }
 
 div#root {
   height: auto;
   min-height: 100%;
-  width: 100%;
+  width: 100vw;
   margin: 0;
   background: #02052f;
   font-family: 'Noto Sans', sans-serif;

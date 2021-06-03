@@ -26,10 +26,11 @@ const CodeBlock = ({ code, language, theme, themeOverride }) => {
 
 const styling = {
   height: 'auto',
-  minHeight: '6rem',
+  minHeight: '3rem',
   maxHeight: '12rem',
   overflowY: 'auto',
   margin: '1rem 0',
+  fontSize: 12,
 }
 
 const mapStateToProps = (state) => ({

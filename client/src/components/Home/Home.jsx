@@ -14,6 +14,7 @@ const Home = ({userId, name, fetchUserPosts, userPosts}) => {
   const [modalOpen, setOpenModal] = useState(false)
   const [editDetails, setEditDetails] = useState(null)
   const [searchResults, setSearchResults] = useState('')
+  const [postLayout, setPostLayout] = useState('grid') 
 
   useEffect(() => {
     fetchUserPosts(userId)
@@ -68,6 +69,8 @@ const Home = ({userId, name, fetchUserPosts, userPosts}) => {
       <Sidebar 
         modalOpen={modalOpen}
         handleSearch={handleSearch}  
+        postLayout={postLayout}
+        setPostLayout={setPostLayout}
       />
  
       <PostsContainer 
@@ -78,6 +81,7 @@ const Home = ({userId, name, fetchUserPosts, userPosts}) => {
         username={name} 
         userPosts={userPosts} 
         searchResults={searchResults}
+        postLayout={postLayout}
       />
     </>
   )

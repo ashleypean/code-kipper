@@ -1,16 +1,19 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { genertatePostLayout } from '../../utils/PostLayout'
 import * as styles from './Sidebar.styles'
 
-const Sidebar = ({ modalOpen, handleSearch }) => { 
+const Sidebar = ({ modalOpen, handleSearch, setPostLayout, postLayout }) => { 
   const { pathname } = useLocation()
 
   const generateSidebar = () => {
     console.log(pathname)
     switch (pathname) {
       case '/': 
-        return <DashboardSidebar handleSearch={handleSearch}/>
+        return <DashboardSidebar 
+                  handleSearch={handleSearch}
+                  setPostLayout={setPostLayout}
+                  postLayout={postLayout}
+                />
       default: 
         return null
     }
@@ -23,27 +26,31 @@ const Sidebar = ({ modalOpen, handleSearch }) => {
   )
 }
 
-const DashboardSidebar = ({ handleSearch }) => (
+const DashboardSidebar = ({ handleSearch, setPostLayout, postLayout }) => (
   <>
-    <styles.LayoutButtonContainer>
-      <styles.ColumnLayout 
-        fontSize="large"
-        onClick={() => genertatePostLayout('column')}
-      />
-      <styles.CondensedColumnLayout
-        fontSize="large"
-        onClick={() => genertatePostLayout('condensed-column')}
-      />
-      <styles.GridLayout
-        fontSize="large"
-        onClick={() => genertatePostLayout('grid')}
-      />
-    </styles.LayoutButtonContainer>
-
     <styles.SearchBar 
       placeholder="Snippet Search" 
       onChange={handleSearch}
     />
+
+  <styles.LayoutButtonContainer>
+      Layout: 
+      <styles.ColumnLayout 
+        active={postLayout === 'column'}
+        fontSize="large"
+        onClick={() => setPostLayout('column')}
+      />
+      <styles.CondensedColumnLayout
+        active={postLayout === 'condensed-column'}
+        fontSize="large"
+        onClick={() => setPostLayout('condensed-column')}
+      />
+      <styles.GridLayout
+        active={postLayout === 'grid'}
+        fontSize="large"
+        onClick={() => setPostLayout('grid')}
+      />
+    </styles.LayoutButtonContainer>
   </>
    
 )

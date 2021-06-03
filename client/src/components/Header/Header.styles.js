@@ -15,7 +15,7 @@ export const CurrentTab = styled.h1`
   font-size: 2rem;
   font-weight: 200;
   margin: 0;
-  width: 30%;`
+  width: 5%;`
 CurrentTab.displayName = 'CurrentTab'
 
 export const Title = styled.h1`

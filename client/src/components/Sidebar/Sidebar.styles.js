@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import ViewStreamIcon from '@material-ui/icons/ViewStream';
 
 export const Container = styled.div`
@@ -8,6 +7,7 @@ export const Container = styled.div`
   filter: ${props => props.modalOpen? 'blur(5px)': 'blur(0px)'};
   height: 100px;
   padding: 1rem;
+  margin: 4rem 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -23,15 +23,21 @@ export const LayoutButtonContainer = styled.div`
 LayoutButtonContainer.displayName = 'LayoutButtonContainer'
 
 export const ColumnLayout = styled(ViewStreamIcon)`
-  cursor: pointer;`
+  cursor: pointer;
+  color: ${props => props.active ? 'white': 'blue'};`
 ColumnLayout.displayName = 'ColumnLayout'
 
 export const CondensedColumnLayout = styled(ViewHeadlineIcon)`
-  cursor: pointer;`
+  cursor: pointer;
+  color: ${props => props.active ? 'white': 'blue'};`
 ColumnLayout.displayName = 'ColumnLayout'
 
-export const GridLayout = styled(ViewModuleIcon)`
-cursor: pointer;`
+export const GridLayout = styled(ViewStreamIcon)`
+cursor: pointer;
+height: 20px;
+width: 150px;
+color: ${props => props.active ? 'white': 'blue'};
+transform: rotate(90deg);`
 GridLayout.displayName = 'GridLayout'
 
 export const SearchBar = styled.input`
