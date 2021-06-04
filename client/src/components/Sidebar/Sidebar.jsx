@@ -1,21 +1,25 @@
 import React from 'react'
+import Tooltip from '@material-ui/core/Tooltip';
 import { useLocation } from 'react-router-dom'
 import * as styles from './Sidebar.styles'
 
-const Sidebar = ({ modalOpen, handleSearch, setPostLayout, postLayout }) => { 
+const Sidebar = ({ modalOpen, handleSearch, setPostLayout, postLayout, setOpenModal }) => { 
   const { pathname } = useLocation()
 
   const generateSidebar = () => {
     console.log(pathname)
     switch (pathname) {
       case '/': 
-        return <DashboardSidebar 
-                  handleSearch={handleSearch}
-                  setPostLayout={setPostLayout}
-                  postLayout={postLayout}
-                />
+        return (
+          <DashboardSidebar 
+            handleSearch={handleSearch}
+            setPostLayout={setPostLayout}
+            postLayout={postLayout}
+            setOpenModal={setOpenModal}
+          />
+        )
       default: 
-        return null
+        return <p>Sidebar</p>
     }
   }
 
@@ -26,7 +30,7 @@ const Sidebar = ({ modalOpen, handleSearch, setPostLayout, postLayout }) => {
   )
 }
 
-const DashboardSidebar = ({ handleSearch, setPostLayout, postLayout }) => (
+const DashboardSidebar = ({ handleSearch, setPostLayout, postLayout, setOpenModal }) => (
   <>
     <styles.SearchBar 
       placeholder="Snippet Search" 
@@ -35,22 +39,36 @@ const DashboardSidebar = ({ handleSearch, setPostLayout, postLayout }) => (
 
   <styles.LayoutButtonContainer>
       Layout: 
-      <styles.ColumnLayout 
-        active={postLayout === 'column'}
-        fontSize="large"
-        onClick={() => setPostLayout('column')}
-      />
-      <styles.CondensedColumnLayout
-        active={postLayout === 'condensed-column'}
-        fontSize="large"
-        onClick={() => setPostLayout('condensed-column')}
-      />
-      <styles.GridLayout
-        active={postLayout === 'grid'}
-        fontSize="large"
-        onClick={() => setPostLayout('grid')}
-      />
+      <Tooltip title="Column">
+        <styles.ColumnLayout 
+          active={postLayout === 'column'}
+          fontSize="large"
+          onClick={() => setPostLayout('column')}
+        />
+      </Tooltip>
+
+      <Tooltip title="Condensed Column">
+        <styles.CondensedColumnLayout
+          active={postLayout === 'condensed-column'}
+          fontSize="large"
+          onClick={() => setPostLayout('condensed-column')}
+        />
+      </Tooltip>
+
+      <Tooltip title="Grid">
+        <styles.GridLayout
+          active={postLayout === 'grid'}
+          fontSize="large"
+          onClick={() => setPostLayout('grid')}
+        />
+      </Tooltip>
+
+
     </styles.LayoutButtonContainer>
+
+    <styles.AddSnippetButton onClick={() => setOpenModal(prev => !prev)}>
+      Add a Snippet
+    </styles.AddSnippetButton>
   </>
    
 )

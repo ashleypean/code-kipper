@@ -5,7 +5,7 @@ import ViewStreamIcon from '@material-ui/icons/ViewStream';
 export const Container = styled.div`
   grid-area: sidebar;
   filter: ${props => props.modalOpen? 'blur(5px)': 'blur(0px)'};
-  height: 100px;
+  height: 200px;
   padding: 1rem;
   margin: 4rem 0 0 0;
   display: flex;
@@ -19,7 +19,8 @@ export const LayoutButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;`
+  align-items: center;
+  margin: 1rem 0;`
 LayoutButtonContainer.displayName = 'LayoutButtonContainer'
 
 export const ColumnLayout = styled(ViewStreamIcon)`
@@ -51,3 +52,15 @@ export const SearchBar = styled.input`
   border-radius: 6px;
   padding: 0 1rem;`
 SearchBar.displayName = 'SearchBar'
+
+export const AddSnippetButton = styled.button`
+  color: white;
+  cursor: pointer;
+  background: #121FCF;
+  background: -webkit-linear-gradient(45deg, #121FCF 21%, #CF1512 100%);
+  background: -moz-linear-gradient(45deg, #121FCF 21%, #CF1512 100%);
+  background: linear-gradient(45deg, #121FCF 21%, #CF1512 100%); 
+  border: 2px solid black;
+  padding: .5rem 1rem;
+  `
+AddSnippetButton.displayName = 'AddSnippetButton'

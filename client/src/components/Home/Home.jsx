@@ -61,13 +61,13 @@ const Home = ({userId, name, fetchUserPosts, userPosts}) => {
 
       <Header 
         modalOpen={modalOpen} 
-        setOpenModal={setOpenModal} 
         searchFunc={handleSearch} 
         searchBar={true}
       />
 
       <Sidebar 
         modalOpen={modalOpen}
+        setOpenModal={setOpenModal} 
         handleSearch={handleSearch}  
         postLayout={postLayout}
         setPostLayout={setPostLayout}
