@@ -4,7 +4,7 @@ export const Container = styled.div`
   grid-area: content;
   display: flex;
   flex-direction: column;
-  gap: 2rem 0;
+  gap: 2rem;
   margin: 4rem 6rem;
   filter: ${props => props.modalOpen? 'blur(5px)': 'blur(0px)'};`
 Container.displayName = 'PostsContainer'

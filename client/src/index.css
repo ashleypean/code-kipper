@@ -7,6 +7,22 @@ html, body {
   margin: 0;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(90deg,#434343,#434343 1px,#111 0,#111);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%), inset -2px -2px 2px rgb(0 0 0 / 25%);
+  background-color: #434343;
+  height: 10px;
+  border-radius: 16px;
+}
+
 div#root {
   height: auto;
   min-height: 100%;

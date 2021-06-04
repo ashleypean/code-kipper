@@ -10,7 +10,7 @@ export const useAppStyles = () => {
     app.style.alignItems = 'center'
   } else {
     app.style.display = 'grid'
-    app.style.gridTemplateRows = '.25fr 1fr 1fr 1fr 1fr'
+    app.style.gridTemplateRows = '75px 1fr 1fr 1fr 1fr'
     app.style.gridTemplateColumns = '10% 15% 25% 25% 25%'
     app.style.gridTemplateAreas = `
       ". header header header header"

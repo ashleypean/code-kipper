@@ -2,7 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { useState } from 'react'
 import ReactDOM from 'react-dom'
-import { Switch, Chip, Button, FormControlLabel, InputLabel, Select, MenuItem, FormControl } from '@material-ui/core'
+import { 
+  Switch, 
+  Chip, 
+  Button, 
+  FormControlLabel, 
+  InputLabel, 
+  Select, 
+  MenuItem, 
+  FormControl,
+  ClickAwayListener, 
+} from '@material-ui/core'
 import CancelIcon from '@material-ui/icons/Cancel';
 import { makeStyles } from '@material-ui/core/styles'
 import * as styles from './Modal.styles'
@@ -85,14 +95,21 @@ const Modal = ({ changeIsOpen, editDetails, setEditDetails, userId, userPosts, s
   }
 
   return ReactDOM.createPortal(
-    <styles.Container onSubmit={(e) => e.preventDefault()}>
+    <ClickAwayListener onClickAway={closeModal}>
+      <styles.Container onSubmit={(e) => e.preventDefault()}>
 
       <CancelIcon onClick={closeModal} className={classes.exitIcon}/>
 
       {/* Select Language */}
       <FormControl>
         <InputLabel id="language" >Language</InputLabel>
-          <Select labelId="language" value={userInput?.language} onChange={selectLanguage}  defaultValue="Javascript" variant="filled" className={classes.selectElement}>
+          <Select 
+            labelId="language" 
+            value={userInput?.language} 
+            onChange={selectLanguage} 
+            defaultValue="Javascript" 
+            variant="filled" 
+            className={classes.selectElement}>
             {Object.keys(languagesObj).map((language) => (
               <MenuItem key={uuidv4()} value={language} >
                 {language}
@@ -103,12 +120,17 @@ const Modal = ({ changeIsOpen, editDetails, setEditDetails, userId, userPosts, s
 
       {/* text input */}
       <styles.Label htmlFor="code-snippet">Copy code here: </styles.Label>
-      <styles.TextArea id="code-snippet" onChange={e => changeUserInput({...userInput, snippet: e.target.value})} 
-      placeholder ="const snippet = 'Insert text here'" 
-      value={userInput?.snippet || undefined} />
+      <styles.TextArea 
+        id="code-snippet" 
+        onChange={e => changeUserInput({...userInput, snippet: e.target.value})} 
+        placeholder ="const snippet = 'Insert text here'" 
+        value={userInput?.snippet || undefined} />
 
       {/* code block */}
-      <CodeBlock code={userInput?.snippet || "const snippet = 'Insert text here'"} language={userInput?.language || 'javascript'} />
+      <CodeBlock 
+        code={userInput?.snippet || "const snippet = 'Insert text here'"} 
+        language={userInput?.language || 'javascript'} 
+        height="5rem"/>
 
       {/* description*/}
       <styles.Label htmlFor="description">Description</styles.Label>
@@ -127,21 +149,42 @@ const Modal = ({ changeIsOpen, editDetails, setEditDetails, userId, userPosts, s
         />
 
       {/* tag input */}
-      <styles.Label htmlFor="tags">Tags - Press the <strong>space key</strong> or insert a <strong>comma</strong> ( , ) to add a new tag</styles.Label>
+      <styles.Label htmlFor="tags">
+        Tags - Press the &nbsp;
+        <strong>space key</strong> 
+        &nbsp;or insert a &nbsp; 
+        <strong>comma</strong> 
+        ( , ) to add a new tag
+      </styles.Label>
       <styles.Input id="tags" placeholder="Insert tags here..." onChange={handleTagInput}/>
         
       {/* tag chip container */}
       <styles.TagsContainer >
       {userInput?.tags?.length > 0 ? userInput.tags.map((tag, idx) => (
-        <Chip variant="default" key={uuidv4()} color="primary" label={tag}
-        onDelete={() => deleteTag(idx)} className={classes.chip} size="medium"
-        />
+        <Chip 
+          variant="default" 
+          key={uuidv4()} 
+          color="primary" 
+          label={`#${tag}`}
+          onDelete={() => deleteTag(idx)} 
+          className={classes.chip} 
+          size="medium" />
       )): null}
-    </styles.TagsContainer>
+      </styles.TagsContainer>
 
-    {/* submit button */}
-    <Button variant="contained" className={classes.button} color="primary" disableElevation onClick={createOrUpdateSnippet}>Submit</Button>
-    </styles.Container>
+      {/* submit button */}
+      <Button 
+        variant="contained" 
+        className={classes.button} 
+        color="primary" 
+        disableElevation 
+        onClick={createOrUpdateSnippet}
+      >
+        Submit
+      </Button>
+      </styles.Container>
+    </ClickAwayListener>
+    
   , document.querySelector('#portal')
   )
 }

@@ -57,10 +57,6 @@ export const AddSnippetButton = styled.button`
   color: white;
   cursor: pointer;
   background: #121FCF;
-  background: -webkit-linear-gradient(45deg, #121FCF 21%, #CF1512 100%);
-  background: -moz-linear-gradient(45deg, #121FCF 21%, #CF1512 100%);
-  background: linear-gradient(45deg, #121FCF 21%, #CF1512 100%); 
   border: 2px solid black;
-  padding: .5rem 1rem;
-  `
+  padding: .5rem 1rem;`
 AddSnippetButton.displayName = 'AddSnippetButton'

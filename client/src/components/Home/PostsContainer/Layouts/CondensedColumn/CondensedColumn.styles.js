@@ -4,7 +4,7 @@ export const Container = styled.div`
   grid-area: content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem 0;
   margin: 4rem 6rem;
   filter: ${props => props.modalOpen? 'blur(5px)': 'blur(0px)'};`
