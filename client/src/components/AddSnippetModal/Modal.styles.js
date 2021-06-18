@@ -5,12 +5,7 @@ export const materialStyles = () => {
     exitIcon: {
       color: 'red',
       alignSelf: 'flex-end'
-    }, 
-    button: {
-      width: '15%', 
-      padding: '.5rem 0',
-      alignSelf: 'center',
-    }, 
+    },
     chip: {
       fontSize: '1.2rem'
     }, 
@@ -44,7 +39,23 @@ export const Container = styled.form`
   font-family: Lato;
   color: white;
   overflow-y: scroll;
-  overflow-x: hidden;`
+  overflow-x: hidden;
+  
+  &::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 12px;
+  }
+  
+  &::-webkit-scrollbar-track {
+  background: linear-gradient(90deg,#434343,#434343 1px,#111 0,#111);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+  box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%), inset -2px -2px 2px rgb(0 0 0 / 25%);
+  background-color: #434343;
+  height: 10px;
+  border-radius: 16px;
+  }`
 Container.displayName = 'Container'
 
 
@@ -72,11 +83,12 @@ Description.displayName = 'Description'
 
 export const TagsContainer = styled.div`
   width: 75%;
+  min-height: .5rem;
   display: flex;
   flex-direction: row;
   gap: .3rem;
   flex-wrap: wrap;
-  margin: .5rem 0 2rem 0;`
+  margin: .5rem 0;`
 TagsContainer.displayName = 'TagsContainer'
 
 
@@ -87,8 +99,9 @@ Label.displayName = 'Label'
 
 
 export const Input = styled.input`
-  min-height: 25px;
-  margin: .5rem 0 1rem 0;
+  height: 25px;
+  padding: .3rem;
+  margin: .5rem 0 0 ;
   outline: none; `
 Input.displayName = 'Input'
 

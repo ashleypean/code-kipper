@@ -1,5 +1,6 @@
 import React from 'react'
 import Tooltip from '@material-ui/core/Tooltip';
+import { Button } from '@material-ui/core'
 import { useLocation } from 'react-router-dom'
 import * as styles from './Sidebar.styles'
 

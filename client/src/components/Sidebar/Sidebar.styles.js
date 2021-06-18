@@ -58,5 +58,6 @@ export const AddSnippetButton = styled.button`
   cursor: pointer;
   background: #121FCF;
   border: 2px solid black;
-  padding: .5rem 1rem;`
+  padding: .5rem 1rem;
+  border-radius: 6px;`
 AddSnippetButton.displayName = 'AddSnippetButton'

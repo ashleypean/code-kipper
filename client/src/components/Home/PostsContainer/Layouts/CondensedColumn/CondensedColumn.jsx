@@ -33,14 +33,25 @@ function CondensedColumn({ modalOpen, searchResults, username, copySnippet, dele
 
           <>
             <styles.Likes>
-              <FavoriteIcon color="secondary" />{post?.likes || '0'} 
+              <FavoriteIcon 
+                color="secondary" 
+                fontSize="inherit" />
+                {post?.likes || '0'} 
             </styles.Likes>
 
-            <DeleteIcon color="error" onClick={(e) => deletePost(post._id)}/>
+            <DeleteIcon 
+              color="error" 
+              onClick={(e) => deletePost(post._id)}
+              fontSize="inherit" />
 
-            <EditSharpIcon id={`post-${idx}-copy`}onClick={(e) => editPost(post)} />
+            <EditSharpIcon 
+              id={`post-${idx}-copy`}
+              onClick={(e) => editPost(post)}
+              fontSize="inherit" />
 
-            <FileCopyIcon onClick={(e) => copySnippet(post.snippet, idx)} />
+            <FileCopyIcon 
+              onClick={(e) => copySnippet(post.snippet, idx)}
+              fontSize="inherit" />
           </>
 
         </styles.PostDetailsContainer>
@@ -61,14 +72,14 @@ function CondensedColumn({ modalOpen, searchResults, username, copySnippet, dele
 
 const privateIcon = (
   <styles.Privacy>
-    <NoEncryptionIcon />
+    <NoEncryptionIcon fontSize="inherit" />
     Private
   </styles.Privacy>
 )
 
 const publicIcon = (
   <styles.Privacy>
-    <PublicIcon />
+    <PublicIcon fontSize="inherit" />
     Public
   </styles.Privacy>
 )

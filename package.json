@@ -2,7 +2,8 @@
   "scripts": {
     "client": "cd client && yarn run start",
     "server": "cd server && nodemon server.js",
-    "dev": ""
+    "start-server": "cd server && npm install && nodemon server.js",
+    "start-client": "cd client && npm install && npm run start"
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {

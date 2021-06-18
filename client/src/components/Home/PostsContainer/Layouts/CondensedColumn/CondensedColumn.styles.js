@@ -7,7 +7,8 @@ export const Container = styled.div`
   justify-content: flex-start;
   gap: 2rem 0;
   margin: 4rem 6rem;
-  filter: ${props => props.modalOpen? 'blur(5px)': 'blur(0px)'};`
+  filter: ${props => props.modalOpen? 'blur(5px)': 'blur(0px)'};
+  font-size: 1rem;`
 Container.displayName = 'PostsContainer'
 
 export const Post = styled.div`
@@ -25,7 +26,8 @@ export const PostDetailsContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;`
+  align-items: center;
+  font-size: .8rem;`
 PostDetailsContainer.displayName = 'PostDetailsContainer'
 
 
@@ -34,20 +36,20 @@ export const Likes = styled.span`
   align-items: center;
   gap: .2rem;
   margin: 0 1rem;
-  font-size: 1.2rem;
   color: #ff1744;`
 Likes.displayName = 'Likes'
 
 export const Tag = styled.span`
-  font-size: 1.2rem;`
+  font-size: .8rem;`
 Tag.displayName = 'Tag'
 
 export const TagContainer = styled.div`
   display: flex;
   height: auto;
   gap: .5rem;
-  padding: 1rem;
-  flex-wrap: wrap;`
+  padding: 1rem 0 0 0;
+  flex-wrap: wrap;
+  font-size: .8rem;`
 TagContainer.displayName = 'TagContainer'
 
 export const Privacy = styled.span`
@@ -61,7 +63,6 @@ Privacy.displayName = 'Privacy'
 export const CopiedText = styled.p`
   visibility: hidden;
   color: green;
-  font-size: 1.4rem;
   text-align: right;;
   margin: 0;`
 CopiedText.displayName = 'CopiedText'

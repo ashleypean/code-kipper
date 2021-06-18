@@ -150,34 +150,31 @@ const Modal = ({ changeIsOpen, editDetails, setEditDetails, userId, userPosts, s
 
       {/* tag input */}
       <styles.Label htmlFor="tags">
-        Tags - Press the &nbsp;
-        <strong>space key</strong> 
-        &nbsp;or insert a &nbsp; 
-        <strong>comma</strong> 
-        ( , ) to add a new tag
+        Tags - Press the <strong>space key</strong> or insert a <strong>comma</strong> to add a new tag
       </styles.Label>
-      <styles.Input id="tags" placeholder="Insert tags here..." onChange={handleTagInput}/>
+      <styles.Input 
+        id="tags" 
+        placeholder="Insert tags here..." 
+        onChange={handleTagInput} />
         
       {/* tag chip container */}
       <styles.TagsContainer >
-      {userInput?.tags?.length > 0 ? userInput.tags.map((tag, idx) => (
-        <Chip 
-          variant="default" 
-          key={uuidv4()} 
-          color="primary" 
-          label={`#${tag}`}
-          onDelete={() => deleteTag(idx)} 
-          className={classes.chip} 
-          size="medium" />
-      )): null}
+        {userInput?.tags?.length > 0 ? userInput.tags.map((tag, idx) => (
+          <Chip 
+            variant="default" 
+            key={uuidv4()} 
+            color="primary" 
+            label={`#${tag}`}
+            onDelete={() => deleteTag(idx)} 
+            className={classes.chip} 
+            size="medium" />
+        )): null}
       </styles.TagsContainer>
 
       {/* submit button */}
       <Button 
         variant="contained" 
-        className={classes.button} 
         color="primary" 
-        disableElevation 
         onClick={createOrUpdateSnippet}
       >
         Submit

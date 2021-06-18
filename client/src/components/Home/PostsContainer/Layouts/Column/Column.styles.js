@@ -17,11 +17,12 @@ export const Post = styled.div`
   max-width: 700px;
   padding: 1rem;
   display: flex;
-  flex-direction: column;`
+  flex-direction: column;
+  font-size: 1rem;`
 Post.displayName = 'Post'
 
 export const Username = styled.p`
-  font-size: 1.6rem;`
+  font-size: 1rem;`
 Username.displayName = 'Username'
 
 export const Likes = styled.span`
@@ -29,22 +30,21 @@ export const Likes = styled.span`
   align-items: center;
   gap: .2rem;
   margin: 0 1rem;
-  font-size: 1.2rem;
   color: #ff1744;`
 Likes.displayName = 'Likes'
 
 export const Language = styled.p`
   display: inline;
-  font-size: 1.2rem;`
+  font-size: .8rem;`
 Language.displayName = 'Language'
 
 export const Description = styled.p`
-  font-size: 1.3rem;
-  color: gray;`
+  color: gray;
+  font-size: .8rem;`
 Description.displayName = 'Description'
 
 export const Tag = styled.span`
-  font-size: 1.2rem;`
+  `
 Tag.displayName = 'Tag'
 
 export const TagContainer = styled.div`
@@ -72,7 +72,6 @@ BottomContainer.displayName = 'BottomContainer'
 export const CopiedText = styled.p`
   visibility: hidden;
   color: green;
-  font-size: 1.4rem;
   text-align: right;;
   margin: 0;`
 CopiedText.displayName = 'CopiedText'
