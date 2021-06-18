@@ -63,6 +63,6 @@ Privacy.displayName = 'Privacy'
 export const CopiedText = styled.p`
   visibility: hidden;
   color: green;
-  text-align: right;;
+  text-align: right;
   margin: 0;`
 CopiedText.displayName = 'CopiedText'
